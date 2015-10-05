@@ -1,0 +1,12 @@
+{
+  "name": "price-tax",
+  "version": "1.0.0",
+  "authors": [
+    "daiiz"
+  ],
+  "description": "price-tax element",
+  "main": "price-tax.html",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.0.0"
+  }
+}
