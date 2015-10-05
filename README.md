@@ -1,5 +1,7 @@
 # polyjsx
-You can write JSX &lt;polymer-element> tags in JavaScript.
+polyjsxは、<polymer-element>タグのJSXを書けるようにします。
+JavaScript中のJSXが現れる場所に`/** @jsx polyjsx */`を与えることで、babelのJSX解釈のデフォルトである
+`React.createElement()`の代わりに`polyjsx()`を用いることができます。
 
 ```javascript
 /** @jsx polyjsx */
@@ -14,7 +16,8 @@ var steak = (
 document.querySelector('body').appendChild(steak);
 ```
 
-Equals:
+上記の内容をJSXを用いずに書くと以下のようになります。上記のJSXをbabelでトランスパイルして表示された結果と、
+以下のコードの出力結果は同じものになります。
 ```javascript
 var message = '国産ビーフ';
 var steak = document.createElement('price-tax');
@@ -23,7 +26,7 @@ var msg = document.createElement('span');
 msg.innerHTML = message;
 msg.setAttribute('style', 'color: red');
 
-Polymer.dom(steak).appendChild(document.createElement('素敵なステーキ'));
+Polymer.dom(steak).appendChild(document.createTextNode('素敵なステーキ'));
 Polymer.dom(steak).appendChild(msg);
 Polymer.dom(steak).setAttribute('price', 2500);
 Polymer.dom(steak).setAttribute('rate', 8);
@@ -34,14 +37,23 @@ document.querySelector('body').appendChild(steak);
 
 ## Demo
 
+デモ実行の準備として下記を実行します。
 ```
 $ cd demo/
 $ bower install
 $ babel demo_es6.js > demo_es5.js
 ```
 
-then,
+続いて、ディレクトリ polyjsx/ に移動して以下のコマンドを実行します。
 ```
 $ python -m SimpleHTTPServer 8000
-$ open http://localhost:8000/demo/
+$ open http://localhost:8000/demo/index.html
 ```
+
+メニューの末尾に`<price-tax>`タグが追加されている様子が確認できます。
+
+<center>
+  <img src="demo/demo.png" style="border: 1px solid #ddd;">
+</center>
+
+## Articles
