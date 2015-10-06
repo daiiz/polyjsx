@@ -1,5 +1,5 @@
 # polyjsx
-polyjsxを使うとJavaScriptに\<polymer-element\>タグのJSXを書けるになります。
+polyjsxを使うとJavaScriptに\<polymer-element\>タグのJSXを書けるようになります。
 
 JavaScript中のJSXが現れる場所に`/** @jsx polyjsx */`を与えることで、babelのJSX解釈のデフォルトである
 `React.createElement()`の代わりに`polyjsx()`を用いることができます。
